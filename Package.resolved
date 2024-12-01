@@ -1,0 +1,15 @@
+{
+  "originHash" : "450fcf9534c554a9ec8048373e25f1730b748812c2e2177cd8bf74343e254246",
+  "pins" : [
+    {
+      "identity" : "spectre-kit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/patriksvensson/spectre-kit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "05b531447809b92969bd8688d7b842bbd796f469"
+      }
+    }
+  ],
+  "version" : 3
+}
