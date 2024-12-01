@@ -8,14 +8,16 @@ import Foundation
  */
 
 func runDay(_ day: Int, useTest: Bool = false) {
-    switch day {
-    case 1:
-        let solution = useTest ? Day01.withTestInput() : Day01()
-        print("Day 1 Part 1:", solution.solvePart1())
-        print("Day 1 Part 2:", solution.solvePart2())
-    default:
+    let dayClassName = String(format: "AoC2024.Day%02d", day)
+
+    guard let dayClass = NSClassFromString(dayClassName) as? Day.Type else {
         print("Day \(day) not implemented yet!")
+        return
     }
+
+    let solution = useTest ? dayClass.withTestInput() : dayClass.init()
+    print("Day \(day) Part 1:", solution.solvePart1())
+    print("Day \(day) Part 2:", solution.solvePart2())
 }
 
 let arguments = CommandLine.arguments

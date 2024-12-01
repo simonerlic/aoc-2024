@@ -1,14 +1,18 @@
 import Foundation
 
-class Day01 {
+public class Day01: Day {
     private let input: String
 
-    init(input: String? = nil) {
+    required init() {
+        self.input = FileReader.readInput(for: 1)
+    }
+
+    required init(input: String? = nil) {
         self.input = input ?? FileReader.readInput(for: 1)
     }
 
-    static func withTestInput() -> Day01 {
-        return Day01(input: FileReader.readInput(for: 1, type: .test))
+    static func withTestInput() -> Self {
+        return self.init(input: FileReader.readInput(for: 1, type: .test))
     }
 
     func createArrays() -> ([Int], [Int]) {

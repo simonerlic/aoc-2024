@@ -1,6 +1,6 @@
 import Foundation
 
-public class Day02: Day {
+public class Day03: Day {
     private let input: String
 
     required init() {
