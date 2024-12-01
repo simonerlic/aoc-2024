@@ -21,8 +21,10 @@ func runDay(_ day: Int, useTest: Bool = false) {
 let arguments = CommandLine.arguments
 let day =
     arguments.count > 1
-    ? Int(arguments[1]) ?? Calendar.current.component(.day, from: Date())
-    : Calendar.current.component(.day, from: Date())
+    ? Int(arguments[1]) ?? Calendar.current.dateComponents(
+        in: TimeZone(secondsFromGMT: 0)!, from: Date()
+    ).day!
+    : Calendar.current.dateComponents(in: TimeZone(secondsFromGMT: 0)!, from: Date()).day!
 let useTest = arguments.contains("--test")
 
 runDay(day, useTest: useTest)
