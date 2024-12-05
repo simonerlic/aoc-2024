@@ -17,11 +17,16 @@ struct FileReader {
         let dayString = String(format: "%02d", day)
         let fileURL = URL(fileURLWithPath: "Sources/Days/\(dayString)/\(type.filename)")
 
+        print("Attempting to read: \(fileURL.path)")  // Debug print
+
         do {
-            return try String(contentsOf: fileURL, encoding: .utf8)
+            let content = try String(contentsOf: fileURL, encoding: .utf8)
+            print("Successfully read file with \(content.count) characters")  // Debug print
+            return content
         } catch {
             print("Error reading \(type.filename) for day \(day): \(error)")
             return ""
         }
     }
+
 }

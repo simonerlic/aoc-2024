@@ -21,12 +21,15 @@ func runDay(_ day: Int, useTest: Bool = false) {
 }
 
 let arguments = CommandLine.arguments
+let useTest = arguments.contains("--test")
+
+// Filter out --test flag before processing day argument
+let filteredArgs = arguments.filter { $0 != "--test" }
 let day =
-    arguments.count > 1
-    ? Int(arguments[1]) ?? Calendar.current.dateComponents(
+    filteredArgs.count > 1
+    ? Int(filteredArgs[1]) ?? Calendar.current.dateComponents(
         in: TimeZone(secondsFromGMT: 0)!, from: Date()
     ).day!
     : Calendar.current.dateComponents(in: TimeZone(secondsFromGMT: 0)!, from: Date()).day!
-let useTest = arguments.contains("--test")
 
 runDay(day, useTest: useTest)
